@@ -1,0 +1,78 @@
+<script>
+let arr=[{'temp':30,'Day':'Monday'},
+{'temp':25,'Day':'Tuesday'},
+{'temp':22,'Day':'Wednesday'},
+{'temp':17,'Day':'Thursday'},
+{'temp':30,'Day':'Friday'},
+{'temp':30,'Day':'Saturday'},
+];
+/*the below mentioned function will add the values via push function*/ 
+arr1=[{'temp':27,'Day':'Sunday'}];
+function insert(arr1)
+{
+    arr.push(arr1)
+}
+/*get_max function will return the maximum temperature*/
+function get_max()
+{   let max = 0;
+    for(let i=0;i<arr.length;i++)
+    {
+        if(arr[i].temp>max)
+        {
+            max=arr[i].temp;
+        }
+    }
+    return max;
+}
+/*get_min function will return the minimum temperature*/
+function get_min()
+{   let min = 10000;
+    for(let i=0;i<arr.length;i++)
+    {
+        if(arr[i].temp<min)
+        {
+            min=arr[i].temp;
+        }
+    }
+    return min;
+}
+/*get_mean function will return the mean temperature*/
+function get_mean()
+{   let sum = 0;
+    for(let i=0;i<arr.length;i++)
+    {
+        sum=sum+arr[i].temp;
+    }
+    len=arr.length;
+    mean=sum/len;
+    return mean;
+}
+/*get_mode function will return the mode temperature*/
+function get_mode()
+{
+    let max_value_counter=0;
+    for(let i =0;i<arr.length;i++)
+    {
+        let counter=0;
+        for(let j=0;j<arr.length;j++)
+        {
+            if(arr[i].temp==arr[j].temp)
+            counter++;
+        }
+        if(counter>max_value_counter)
+        {
+            max_value_counter=counter;
+            mode=arr[i].temp;
+        }
+    }
+    return  mode;
+}
+max_temp=get_max();
+min_temp=get_min();
+mean_temp=get_mean();
+mode_temp=get_mode();
+console.log("The maximum temperature recorded is"+" "+ max_temp);
+console.log("The minimun temperature recorded is"+" "+ min_temp);
+console.log("The mean temperature recorded is"+" "+ mean_temp);
+console.log("The mode temperature recorded is"+" "+ mode_temp);
+</script>
